@@ -2,7 +2,8 @@ import cv2
 import os
 
 directory = 'img'
-os.mkdir(directory)
+if not os.path.isdir(directory):
+    os.mkdir(directory)
 cv2.namedWindow("preview")
 vc = cv2.VideoCapture(0)
 
