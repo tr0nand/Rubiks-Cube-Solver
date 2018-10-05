@@ -1,6 +1,9 @@
 import cv2
 import os
 from average import average_color
+from knn import colorrec
+
+
 
 directory = 'img'
 if not os.path.isdir(directory):
@@ -17,6 +20,7 @@ img_counter = 0
 xpos = 125
 ypos = 185
 size = 50
+colpredict = colorrec()
 while rval and img_counter !=6:
     cv2.imshow("preview", frame)
     rval, frame = vc.read()
@@ -27,18 +31,25 @@ while rval and img_counter !=6:
         cv2.imwrite(os.path.join(directory,imgname), frame)
         img_counter = img_counter + 1
         print("Face {} taken".format(img_counter))
-        cv2.imshow('Side',frame)
-        cv2.waitKey(0)
         cubeFace = average_color(frame)
-        cubeFace.face1()
-        cubeFace.face2()
-        cubeFace.face3()
-        cubeFace.face4()
-        cubeFace.face5()
-        cubeFace.face6()
-        cubeFace.face7()
-        cubeFace.face8()
-        cubeFace.face9()
+        col1 = cubeFace.face1()
+        print(colpredict.color(col1))
+        col2 = cubeFace.face2()
+        print(colpredict.color(col2))
+        col3 = cubeFace.face3()
+        print(colpredict.color(col3))
+        col4 = cubeFace.face4()
+        print(colpredict.color(col4))
+        col5 = cubeFace.face5()
+        print(colpredict.color(col5))
+        col6 = cubeFace.face6()
+        print(colpredict.color(col6))
+        col7 = cubeFace.face7()
+        print(colpredict.color(col7))
+        col8 = cubeFace.face8()
+        print(colpredict.color(col8))
+        col9 = cubeFace.face9()
+        print(colpredict.color(col9))
 
 
     else:
