@@ -20,3 +20,10 @@ class colorrec:
 
     def color(self,data):
         return self.knn.predict(data)
+
+    def accuracy(self):
+        data = pd.read_csv('Trainingdata.csv',header=None)
+        (length,cols) = data.shape
+        Test_X = data.iloc[0:length,0:3]
+        Test_y = data.iloc[0:length,3:4]
+        return self.knn.score(Test_X,Test_y)
