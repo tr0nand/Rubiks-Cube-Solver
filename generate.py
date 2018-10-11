@@ -106,12 +106,10 @@ while rval and img_counter !=6:
     rval, frame = vc.read()
     key = cv2.waitKey(20)
     color = colors[img_counter]
-    color = 'Orange'
     if(ask):
         print("Input color",color)
         ask = False
     if key == 32:
-        color = 'Orange'
         frame = frame[ypos:ypos + 3*size,xpos:xpos+3*size]
         cv2.imshow(color,frame)
         cv2.waitKey(0)
