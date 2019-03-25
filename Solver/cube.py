@@ -234,10 +234,23 @@ class Cube(object):
     def setConfig(self, conf):
         self.colors = conf
  
-    def scrambler(self,n):
-        moves="F2 U' B R L" #Reverse Solution Array
-        #print(moves)
-        self.execute(moves)
+    def scrambler(self,moves):
+        items=str(moves)
+        items = items.split(' ')
+        items.reverse()
+        newmoves=''
+        for i in items: #reverse
+            if i[len(i)-1]!='2':
+                if i[len(i)-1]=="'":
+                    i=i[:1]
+                    print(i)
+                else:
+                    i=i+"'"
+            newmoves=newmoves+' '+i
+
+        newmoves=newmoves[1:]
+        
+        self.execute(newmoves)
 
 if __name__ == '__main__':
     c = Cube()
